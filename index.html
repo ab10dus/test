@@ -3,16 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strategic Product Proposal: The NIFT Connections Accelerator</title>
+    <title>Infographic | The Gridlock in the Grid</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- 
+        Chosen Palette: EA Technology Corporate Branding (Utilizing the official brand colors: dark navy blue, electric cyan, and lime green for a professional and on-brand feel).
+        Application Structure Plan: The infographic is structured as a compelling narrative that guides the user from the "Why" (The Crisis & Problem Deconstruction), to the "Who" (The Stakeholders), to the "How" (The Strategy & Plan), and finally to the "What" (The Impact). This structure makes a complex strategic document easy to digest and understand.
+        Visualization & Content Choices: 
+        - Report Info: "Perfect Storm" Concept -> Goal: Inform -> Viz: 3-card layout with unicode icons -> Interaction: Hover animations -> Justification: Quickly communicates the three core problem drivers. -> Method: HTML/CSS.
+        - Report Info: "Deconstructing Feedback & Hypotheses" -> Goal: Explain -> Viz: Two-column text cards and a list of hypothesis cards -> Justification: Clearly breaks down the analysis of the core problem. -> Method: HTML/CSS.
+        - Report Info: "Stakeholder Matrix" -> Goal: Organize -> Viz: 5-card layout with role tags -> Interaction: Hover animations -> Justification: Clearly presents the key players and their motivations. -> Method: HTML/CSS.
+        - Report Info: "GRID Scoring Data" -> Goal: Compare -> Viz: Horizontal Bar Chart -> Interaction: Rich tooltips -> Justification: The best way to clearly compare the final scores of different initiatives. -> Library: Chart.js.
+        - Report Info: "Effort-Value Analysis" -> Goal: Relationships -> Viz: Bubble Chart -> Interaction: Rich tooltips -> Justification: Ideal for showing the relationship between Value (GRID Score), Effort, and the specific initiative. -> Library: Chart.js.
+        - Report Info: "12-Week Roadmap" -> Goal: Change (Timeline) -> Viz: HTML/CSS Grid-based Gantt-style chart -> Interaction: None -> Justification: Provides a clear, professional visualization for the project timeline. -> Method: HTML/CSS.
+        - Report Info: "Epic Hierarchy" -> Goal: Organize -> Viz: Nested, styled HTML divs -> Interaction: None -> Justification: A simple and clear way to represent hierarchical data. -> Method: HTML/CSS.
+        - Report Info: "Product Principles" -> Goal: Explain -> Viz: Grid of styled cards with icons -> Justification: Clearly articulates the core working philosophy. -> Method: HTML/CSS.
+        - Report Info: "KPI Targets" -> Goal: Inform -> Viz: Large number callouts in cards -> Interaction: None -> Justification: High-impact presentation of key success metrics. -> Method: HTML/CSS.
+        CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+     -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F8F9FA;
+            background-color: #F8FAFC;
+            color: #1E293B;
         }
         .chart-container {
             position: relative;
@@ -21,188 +37,200 @@
             margin-left: auto;
             margin-right: auto;
             height: 350px;
+            max-height: 400px;
+        }
+        .card {
+            background-color: #FFFFFF;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .kpi-number {
+            font-weight: 900;
+            line-height: 1;
         }
         .roadmap-grid {
             display: grid;
-            grid-template-columns: 100px repeat(3, 1fr);
-            grid-template-rows: auto;
-            gap: 4px;
+            grid-template-columns: 150px repeat(3, 1fr);
+            gap: 8px;
         }
         .roadmap-sprint-header {
             text-align: center;
-            font-weight: 600;
+            font-weight: bold;
             padding: 8px;
             font-size: 0.875rem;
-            grid-column: span 1;
         }
         .roadmap-lane {
-            font-weight: 600;
-            padding: 16px 8px;
-            text-align: right;
-            font-size: 0.875rem;
-            color: #475569;
+            font-weight: bold;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            border-right: 2px solid #E2E8F0;
         }
         .roadmap-item {
-            padding: 12px;
             border-radius: 8px;
-            font-size: 0.8rem;
-            line-height: 1.2;
-            margin: 2px;
-            min-height: 90px;
+            padding: 12px;
+            font-size: 0.875rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            line-height: 1.4;
         }
     </style>
 </head>
-<body class="text-[#1A2B45]">
-    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+<body class="antialiased">
 
-        <header class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-[#1A2B45]">From Friction to Foresight</h1>
-            <p class="mt-4 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">A strategic proposal to evolve the VisNet NIFT platform and empower DNOs for the new era of energy connections.</p>
-        </header>
+    <header class="text-center p-8 md:p-12 bg-white">
+        <h1 class="text-4xl md:text-5xl font-black text-slate-900 uppercase tracking-wider">The Gridlock in the Grid</h1>
+        <p class="text-lg md:text-xl mt-4 max-w-3xl mx-auto text-slate-600">A Strategic Proposal by <span class="font-bold text-[#002D42]">Abdus Salam</span> to Revolutionise Connection Impact Assessments</p>
+    </header>
 
-        <main class="space-y-16">
-            <section class="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                <h2 class="text-3xl font-bold text-center mb-8">The Core Insight: From Technical Tool to Strategic Partner</h2>
-                <p class="text-center text-slate-600 max-w-4xl mx-auto mb-8">The feedback that the workflow is "too time-consuming" and lacks "the right value" is not a simple feature request. It is a signal that the very definition of "value" has changed for our DNO customers. Under the pressure of the Connections Action Plan (CAP), they no longer need just a technically accurate assessment tool; they need a strategic partner that helps them make faster, smarter, and more cost-effective decisions to manage their connection queues.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div class="p-6 border border-red-200 bg-red-50 rounded-lg">
-                        <h3 class="font-bold text-red-800 text-lg text-center">The Old Definition of Value</h3>
-                        <div class="mt-4 text-sm text-red-700 space-y-2">
-                            <p>● <strong>Focus:</strong> Technical Accuracy</p>
-                            <p>● <strong>Output:</strong> A single, static "pass/fail" result</p>
-                            <p>● <strong>Process:</strong> Manual, linear, and slow</p>
-                            <p>● <strong>User Goal:</strong> "Is this connection technically feasible?"</p>
-                        </div>
-                    </div>
-                    <div class="p-6 border border-green-200 bg-green-50 rounded-lg">
-                        <h3 class="font-bold text-green-800 text-lg text-center">The New Definition of Value (Post-CAP)</h3>
-                        <div class="mt-4 text-sm text-green-700 space-y-2">
-                           <p>● <strong>Focus:</strong> Strategic Decision Support</p>
-                           <p>● <strong>Output:</strong> A comparison of costed, viable scenarios</p>
-                           <p>● <strong>Process:</strong> Automated, iterative, and rapid</p>
-                           <p>● <strong>User Goal:</strong> "What is the fastest, most cost-effective way to connect this LCT while managing my queue?"</p>
-                        </div>
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="problem" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">The DNO's Perfect Storm</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="card">
+                    <div class="text-6xl mb-4">🌪️</div>
+                    <h3 class="text-xl font-bold mb-2 text-[#002D42]">The LCT Tsunami</h3>
+                    <p class="text-slate-600">An unprecedented wave of EV, solar, and heat pump applications is overwhelming legacy systems.</p>
+                </div>
+                <div class="card">
+                    <div class="text-6xl mb-4">🔄</div>
+                    <h3 class="text-xl font-bold mb-2 text-[#002D42]">The DSO Transition</h3>
+                    <p class="text-slate-600">The shift to an active system operator demands dynamic, data-driven tools, not manual processes.</p>
+                </div>
+                <div class="card">
+                    <div class="text-6xl mb-4">⚖️</div>
+                    <h3 class="text-xl font-bold mb-2 text-[#002D42]">The Regulatory Hammer</h3>
+                    <p class="text-slate-600">The Connections Action Plan (CAP) mandates a "first ready, first needed" model, making the old queue obsolete.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="deconstruction" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">My Understanding & Core Assumptions</h2>
+            <div class="text-center mb-10">
+                 <p class="text-slate-600 max-w-3xl mx-auto">Before building a solution, it's critical to deconstruct the feedback and form a set of clear, testable hypotheses. This is my interpretation of the core problem.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="card">
+                    <h3 class="font-bold text-lg text-[#002D42] mb-2">"Too time-consuming"</h3>
+                    <p class="text-slate-600">This points to a broken process. It's a symptom of manual data entry, disconnected tools, and endless back-and-forth to chase missing information.</p>
+                </div>
+                <div class="card">
+                    <h3 class="font-bold text-lg text-[#002D42] mb-2">"Not the right value"</h3>
+                    <p class="text-slate-600">This is the critical insight. The process is delivering an answer to a question nobody is asking anymore. The "value" they need isn't a static report; it's dynamic decision-support for managing a complex connection queue.</p>
+                </div>
+            </div>
+            <div class="card">
+                 <h3 class="text-xl font-bold text-center mb-4 text-[#002D42]">My Testable Hypotheses</h3>
+                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+                    <div class="p-4 bg-slate-50 rounded-lg"><span class="font-bold text-[#00A9CE]">1. Process:</span> The bottleneck is manual integration between siloed tools.</div>
+                    <div class="p-4 bg-slate-50 rounded-lg"><span class="font-bold text-[#00A9CE]">2. Value:</span> "Lack of value" stems from the output being a static, non-actionable document.</div>
+                    <div class="p-4 bg-slate-50 rounded-lg"><span class="font-bold text-[#00A9CE]">3. Data:</span> Engineers spend >30% of their time on low-value data entry and chasing applicants.</div>
+                    <div class="p-4 bg-slate-50 rounded-lg"><span class="font-bold text-[#00A9CE]">4. Tooling:</span> There is no single source of truth for connection applications.</div>
+                    <div class="p-4 bg-slate-50 rounded-lg lg:col-span-2"><span class="font-bold text-[#00A9CE]">5. Strategic:</span> A "single pane of glass" view would be a high-value, mission-critical tool for DNOs.</div>
+                 </div>
+            </div>
+        </section>
+
+        <section id="stakeholders" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Understanding the Ecosystem: Key Stakeholders</h2>
+            <p class="text-center text-slate-600 max-w-3xl mx-auto mb-10">To build the right solution, I will engage with a wide range of stakeholders. Each holds a critical piece of the puzzle, and their motivations must inform my strategy.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card">
+                    <h3 class="font-bold text-lg text-[#002D42] mb-3">👤 Primary Users (DNO)</h3>
+                    <p class="text-sm text-slate-600 mb-3">They live the process daily. I need to understand their workflow, pain points, and workarounds to validate my hypotheses.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">Connection Engineers</span>
+                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">Planning Engineers</span>
                     </div>
                 </div>
-            </section>
-            
-            <section id="discovery" class="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                <h2 class="text-3xl font-bold text-center mb-4">Phase 1: Deconstructing the Problem & Validating Assumptions</h2>
-                <p class="text-center text-slate-500 mb-10">(Sprints 1-2)</p>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                    <div>
-                        <h3 class="font-bold text-xl mb-4 text-[#005DFF]">Testable Hypotheses</h3>
-                        <p class="text-slate-600 mb-6">We will translate the vague feedback into specific, testable hypotheses. This rigor ensures we are solving the right problems and building a solution that delivers true value in the new regulatory environment.</p>
-                        <div class="space-y-4">
-                            <div class="p-4 bg-slate-50 rounded-lg border-l-4 border-blue-300">
-                                <h4 class="font-bold text-slate-800">H1: Data Friction</h4>
-                                <p class="text-slate-600 text-sm">Engineers spend >50% of their time on manual data aggregation from disparate systems (GIS, spreadsheets) before an assessment can even begin.</p>
-                            </div>
-                            <div class="p-4 bg-slate-50 rounded-lg border-l-4 border-teal-300">
-                                <h4 class="font-bold text-slate-800">H2: Lack of Strategic Context</h4>
-                                <p class="text-slate-600 text-sm">The current output (e.g., voltage drop) is insufficient. Users need indicative reinforcement costs and CAP-compliant options to make effective decisions.</p>
-                            </div>
-                             <div class="p-4 bg-slate-50 rounded-lg border-l-4 border-teal-300">
-                                <h4 class="font-bold text-slate-800">H3: Inability to Model Scenarios</h4>
-                                <p class="text-slate-600 text-sm">The tool cannot efficiently model or compare alternative solutions (e.g., firm vs. non-firm connections), which is now essential for queue management.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-xl mb-4 text-[#005DFF]">A 360° View: Who to Talk To & Why</h3>
-                        <p class="text-slate-600 mb-6">A comprehensive understanding requires engaging stakeholders across the entire value chain. Our discovery will focus on gathering specific, actionable insights from each group.</p>
-                        <div class="space-y-4">
-                            <div class="p-4 border border-slate-200 rounded-lg">
-                                <h4 class="font-semibold">Internal Experts (EA Technology)</h4>
-                                <p class="text-sm text-slate-500 mt-1"><strong>Goal:</strong> Consolidate internal knowledge on technical constraints, commercial context, and competitive landscape before engaging customers.</p>
-                            </div>
-                            <div class="p-4 border border-slate-200 rounded-lg">
-                                <h4 class="font-semibold">DNOs (Engineers & Planners)</h4>
-                                <p class="text-sm text-slate-500 mt-1"><strong>Goal:</strong> Map the "As-Is" workflow in detail. Quantify time spent on each step and validate which missing "value" features (e.g., costing, scenario modeling) are most critical.</p>
-                            </div>
-                            <div class="p-4 border border-slate-200 rounded-lg">
-                                <h4 class="font-semibold">Ecosystem Partners (Installers & ICPs)</h4>
-                                <p class="text-sm text-slate-500 mt-1"><strong>Goal:</strong> Understand the end-to-end friction. Identify opportunities for a future-state tool to provide them with upfront data that reduces application errors and delays.</p>
-                            </div>
-                        </div>
+                 <div class="card">
+                    <h3 class="font-bold text-lg text-[#002D42] mb-3">🤝 DNO Customers</h3>
+                    <p class="text-sm text-slate-600 mb-3">Their frustrations with the application process directly cause the DNO's administrative burden. A solution that helps them helps everyone.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">ICPs</span>
+                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">LCT Installers</span>
+                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">Developers</span>
                     </div>
                 </div>
-            </section>
+                 <div class="card">
+                    <h3 class="font-bold text-lg text-[#002D42] mb-3">🏛️ Regulatory & Governance</h3>
+                    <p class="text-sm text-slate-600 mb-3">Their mandates (especially the CAP) are the primary driver of this project. The proposed solution must be fully aligned with their requirements.</p>
+                     <div class="flex flex-wrap gap-2">
+                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">Ofgem</span>
+                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">NESO</span>
+                    </div>
+                </div>
+                 <div class="card lg:col-span-3">
+                    <h3 class="font-bold text-lg text-[#002D42] mb-3">🏢 Internal EA Technology Stakeholders</h3>
+                    <p class="text-sm text-slate-600 mb-3">I will align on business objectives, leverage existing company expertise, and secure the necessary resources for success.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">Product Leadership</span>
+                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">Sales & Accounts</span>
+                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">DSO Consultancy Team</span>
+                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">Engineering</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <section id="prioritisation" class="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                <h2 class="text-3xl font-bold text-center mb-8">Phase 2: Prioritisation & Opportunity Sizing</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="font-bold text-xl mb-4 text-[#005DFF]">The GRID Prioritisation Framework</h3>
-                        <p class="text-slate-600 mb-6">To ensure we invest in what truly matters, each initiative is scored against four strategic pillars. This provides an objective, data-driven foundation for our roadmap decisions.</p>
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-sm text-left text-slate-500">
-                                <thead class="text-xs text-slate-700 uppercase bg-slate-50">
-                                    <tr><th scope="col" class="px-6 py-3">Pillar</th><th scope="col" class="px-6 py-3">Description</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="bg-white border-b"><td class="px-6 py-3 font-semibold">Growth & Retention</td><td class="px-6 py-3">Impact on retaining key customers and winning new accounts.</td></tr>
-                                    <tr class="bg-white border-b"><td class="px-6 py-3 font-semibold">Regulatory Alignment</td><td class="px-6 py-3">Helps customers meet regulatory demands (e.g., CAP).</td></tr>
-                                    <tr class="bg-white border-b"><td class="px-6 py-3 font-semibold">Impact on User</td><td class="px-6 py-3">Solves a frequent, high-pain problem for end-users.</td></tr>
-                                    <tr class="bg-white"><td class="px-6 py-3 font-semibold">Deliverability</td><td class="px-6 py-3">Confidence in shipping a meaningful MVP this quarter.</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
+        <section id="strategy" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">A Data-Driven Strategy: From a Crowded Field to a Clear Focus</h2>
+            <div class="card md:col-span-3 mb-8">
+                <h3 class="text-2xl font-bold text-center mb-4">The GRID Prioritisation Framework</h3>
+                <p class="text-center text-slate-600 max-w-3xl mx-auto mb-6">To ensure my efforts are laser-focused on what matters, I will score every potential initiative against four strategic pillars. This data-driven approach removes bias and provides a defensible rationale for my product strategy.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                    <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="text-3xl font-black text-[#002D42]">G</p>
+                        <p class="font-semibold mt-1">Growth & Retention</p>
                     </div>
-                    <div>
-                        <h3 class="font-bold text-xl mb-4 text-[#005DFF]">Example Scoring & Decision</h3>
-                        <p class="text-slate-600 mb-6">Comparing the LCT Workflow initiative against other potential projects clearly shows its high strategic value, justifying its position as a top priority for the quarter.</p>
-                        <div class="chart-container">
-                            <canvas id="gridScoreChart"></canvas>
-                        </div>
+                    <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="text-3xl font-black text-[#00A9CE]">R</p>
+                        <p class="font-semibold mt-1">Regulatory Alignment</p>
+                    </div>
+                     <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="text-3xl font-black text-[#A4D65E]">I</p>
+                        <p class="font-semibold mt-1">Impact on User</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="text-3xl font-black text-slate-500">D</p>
+                        <p class="font-semibold mt-1">Deliverability</p>
                     </div>
                 </div>
-            </section>
-            
-            <section id="epics" class="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                <h2 class="text-3xl font-bold text-center mb-4">From Epic to User Story: Defining the MVP</h2>
-                <p class="text-center text-slate-600 max-w-3xl mx-auto mb-10">To ensure clarity and focus, we will define a tightly-scoped MVP: the <strong>"NIFT Connections Accelerator"</strong>. This section breaks down the primary epic into its core components and provides example user stories.</p>
-                <div class="space-y-6">
-                    <div>
-                        <h3 class="font-bold text-xl text-[#005DFF]">EPIC: Build the Connections Accelerator MVP</h3>
-                        <p class="text-slate-600 mt-1">Create a streamlined, guided workflow within the NIFT platform that dramatically reduces the time and effort required to assess a standard domestic LCT connection.</p>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="p-4 bg-slate-50 rounded-lg">
-                            <h4 class="font-semibold text-slate-800">Component 1: Automated Data Ingestion</h4>
-                            <ul class="mt-2 text-sm text-slate-600 list-disc list-inside space-y-1">
-                                <li><strong>User Story:</strong> "As a Connection Engineer, I want to input a location (postcode or coordinates), so that the tool automatically pulls the relevant network topology and asset data from our GIS via an API, eliminating manual entry."</li>
-                            </ul>
-                        </div>
-                        <div class="p-4 bg-slate-50 rounded-lg">
-                             <h4 class="font-semibold text-slate-800">Component 2: Guided Assessment UI</h4>
-                            <ul class="mt-2 text-sm text-slate-600 list-disc list-inside space-y-1">
-                                <li><strong>User Story:</strong> "As a Connection Engineer, I want a single-page, step-by-step workflow to input connection details (e.g., EV charger kW), so that I can complete an assessment without navigating multiple screens."</li>
-                            </ul>
-                        </div>
-                        <div class="p-4 bg-slate-50 rounded-lg">
-                             <h4 class="font-semibold text-slate-800">Component 3: Contextual Results Display</h4>
-                            <ul class="mt-2 text-sm text-slate-600 list-disc list-inside space-y-1">
-                                <li><strong>User Story:</strong> "As a Connection Engineer, when an assessment identifies a constraint, I want to see an indicative reinforcement cost alongside the technical data, so I can immediately understand the commercial implications."</li>
-                            </ul>
-                        </div>
-                        <div class="p-4 bg-slate-50 rounded-lg">
-                             <h4 class="font-semibold text-slate-800">Component 4: Pilot Feedback Mechanism</h4>
-                            <ul class="mt-2 text-sm text-slate-600 list-disc list-inside space-y-1">
-                                <li><strong>User Story:</strong> "As a pilot user, I want a simple way to provide feedback (e.g., a one-click satisfaction rating and comment box) after each assessment, so that I can help the product team improve the tool."</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            </div>
 
-            <section id="roadmap" class="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                <h2 class="text-3xl font-bold text-center mb-4">Phase 3: The Roadmap for Action</h2>
-                <p class="text-center text-slate-600 max-w-3xl mx-auto mb-10">Our theme: <span class="font-bold text-[#005DFF]">"From Hours to Minutes, From Data to Insight."</span> This is our plan for the next 12 weeks.</p>
-                
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="card">
+                    <h3 class="text-xl font-bold text-center mb-4 text-[#00A9CE]">Initiative Prioritisation (GRID Score)</h3>
+                    <p class="text-sm text-center text-slate-600 mb-4">Scoring potential epics against the GRID framework reveals a clear strategic direction, highlighting where the true value lies.</p>
+                    <div class="chart-container">
+                        <canvas id="gridScoreChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold text-center mb-4 text-[#00A9CE]">Effort vs. Value Matrix</h3>
+                     <p class="text-sm text-center text-slate-600 mb-4">Visualising the scored initiatives allows me to identify Quick Wins, prioritise the Big Bets, and avoid costly Money Pits.</p>
+                    <div class="chart-container">
+                        <canvas id="effortValueMatrix"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="blueprint" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">The Blueprint: Visualising the Path Forward</h2>
+            <div class="card mb-8">
+                <h3 class="text-2xl font-bold text-center mb-2">The Quarterly Roadmap</h3>
+                <p class="text-center text-slate-600 max-w-3xl mx-auto mb-8">My proposed theme: <span class="font-bold text-[#002D42]">"From Hours to Minutes, From Data to Insight."</span></p>
                 <div class="overflow-x-auto">
                     <div class="roadmap-grid min-w-[800px]">
                         <div></div>
@@ -210,10 +238,10 @@
                         <div class="roadmap-sprint-header">Sprints 3-4</div>
                         <div class="roadmap-sprint-header">Sprints 5-6</div>
 
-                        <div class="roadmap-lane border-t border-slate-200">Discovery & Strategy</div>
+                        <div class="roadmap-lane border-t border-slate-200">Discovery &amp; Strategy</div>
                         <div class="roadmap-item bg-amber-100 text-amber-800" style="grid-column: 2 / span 1;">
                             <span class="font-bold">Problem Validation</span>
-                            <span>Stakeholder Interviews, Journey Mapping, Prioritisation & Go/No-Go Decision</span>
+                            <span>Stakeholder Interviews, Journey Mapping, Prioritisation &amp; Go/No-Go Decision</span>
                         </div>
                         <div class="roadmap-item bg-violet-100 text-violet-800" style="grid-column: 3 / span 1;">
                             <span class="font-bold">AI Spike</span>
@@ -221,106 +249,245 @@
                         </div>
                         <div></div>
 
-                        <div class="roadmap-lane border-t border-slate-200">Accelerator MVP</div>
+                        <div class="roadmap-lane border-t border-slate-200">MVP Development</div>
                         <div></div>
                         <div class="roadmap-item bg-sky-100 text-sky-800" style="grid-column: 3 / span 1;">
-                            <span class="font-bold">EPIC 1: Build</span>
-                            <span>Develop Data Ingestion & Guided UI components.</span>
+                            <span class="font-bold">Epic A: Automated Study (Engine)</span>
+                            <span>Develop core backend for the automated feasibility study.</span>
                         </div>
                          <div class="roadmap-item bg-teal-100 text-teal-800" style="grid-column: 4 / span 1;">
-                            <span class="font-bold">EPIC 2: Pilot & Iterate</span>
-                            <span>Deploy MVP to pilot DNOs. Add Contextual Results & Feedback mechanism.</span>
+                            <span class="font-bold">Epic B: Smart Portal (UI) & Pilot</span>
+                            <span>Build applicant portal UI and deploy integrated MVP to pilot users.</span>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <section id="artefacts" class="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                <h2 class="text-3xl font-bold text-center mb-4">Measuring What Matters: Outcomes Over Outputs</h2>
-                <p class="text-center text-slate-600 max-w-3xl mx-auto mb-10">Success is not shipping features; it is delivering measurable outcomes. We will track our progress against a balanced scorecard of KPIs that reflect true user and business value.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-                    <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
-                        <h4 class="font-bold text-slate-800">User Efficiency</h4>
-                        <p class="text-sm text-slate-500 mt-2">Reduce average assessment time-on-task by 40% for pilot users.</p>
-                    </div>
-                    <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
-                        <h4 class="font-bold text-slate-800">User Satisfaction</h4>
-                        <p class="text-sm text-slate-500 mt-2">Increase workflow-specific NPS/CSAT score by +20 points.</p>
-                    </div>
-                    <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
-                        <h4 class="font-bold text-slate-800">Adoption Rate</h4>
-                        <p class="text-sm text-slate-500 mt-2">Achieve 75% adoption of the new workflow for standard assessments in the pilot group.</p>
-                    </div>
-                     <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
-                        <h4 class="font-bold text-slate-800">Customer Health</h4>
-                        <p class="text-sm text-slate-500 mt-2">Improve the customer health score of the initial complainant DNOs from "At-Risk" to "Healthy".</p>
+            </div>
+            <div class="card">
+                <h3 class="text-2xl font-bold text-center mb-6">From Vision to Task: Breaking Down an Epic</h3>
+                <div class="max-w-2xl mx-auto">
+                    <div class="bg-slate-700 text-white p-3 rounded-lg text-center font-bold">Theme: Revolutionise Connection Impact Assessment</div>
+                    <div class="w-full flex justify-center my-2"><div class="h-6 w-1 bg-slate-300"></div></div>
+                    <div class="bg-[#002D42] text-white p-3 rounded-lg text-center font-semibold">Epic: Automated Feasibility Study</div>
+                    <div class="w-full flex justify-center my-2"><div class="h-6 w-1 bg-slate-300"></div></div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center text-sm">
+                        <div class="bg-blue-100 p-3 rounded-lg">
+                            <p class="font-bold text-[#002D42]">Feature 1</p>
+                            <p class="text-slate-700 mt-1">Ingest & Validate Application Data</p>
+                        </div>
+                        <div class="bg-blue-100 p-3 rounded-lg">
+                            <p class="font-bold text-[#002D42]">Feature 2</p>
+                            <p class="text-slate-700 mt-1">Integrate with GIS & Network Models</p>
+                        </div>
+                        <div class="bg-blue-100 p-3 rounded-lg">
+                            <p class="font-bold text-[#002D42]">Feature 3</p>
+                            <p class="text-slate-700 mt-1">Display "RAG" Status on Dashboard</p>
+                        </div>
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </section>
 
-        <footer class="text-center mt-16 text-slate-500 text-sm">
-            <p>This strategic proposal was designed to demonstrate a data-driven, user-centric, and commercially-aware approach to product ownership.</p>
-        </footer>
-    </div>
+        <section id="principles" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">My Product Principles: How I Build & Win</h2>
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card text-center">
+                    <div class="text-4xl mb-3">🚀</div>
+                    <h3 class="font-bold text-lg text-[#002D42] mb-2">Create Resilient Teams</h3>
+                    <p class="text-sm text-slate-600">Resilient teams expect rework—momentum matters more than perfection.</p>
+                </div>
+                <div class="card text-center">
+                    <div class="text-4xl mb-3">💡</div>
+                    <h3 class="font-bold text-lg text-[#002D42] mb-2">Rapid Prototyping</h3>
+                    <p class="text-sm text-slate-600">I embrace rapid prototyping, fail fast, and iterate towards the right solution.</p>
+                </div>
+                <div class="card text-center">
+                    <div class="text-4xl mb-3">📊</div>
+                    <h3 class="font-bold text-lg text-[#002D42] mb-2">Measure Value</h3>
+                    <p class="text-sm text-slate-600">Even when unmeasurable, I try to define performance indicators to track progress.</p>
+                </div>
+                <div class="card text-center">
+                     <div class="text-4xl mb-3">⏳</div>
+                    <h3 class="font-bold text-lg text-[#002D42] mb-2">Cost of Slow Decisions</h3>
+                    <p class="text-sm text-slate-600">A slow decision can be worse than the wrong one. I value being proactive over reactive.</p>
+                </div>
+                <div class="card text-center lg:col-span-2">
+                     <div class="text-4xl mb-3">🤝</div>
+                    <h3 class="font-bold text-lg text-[#002D42] mb-2">Maintain Momentum</h3>
+                    <p class="text-sm text-slate-600">Stakeholder alignment is ongoing—1:1s, workshops, and journey mapping are key to buy-in and success.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="impact" class="mb-8">
+             <h2 class="text-3xl font-bold text-center mb-8">Measuring What Matters: Outcomes Over Outputs</h2>
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                 <div class="card">
+                    <p class="text-5xl md:text-7xl kpi-number text-[#00A9CE]">75%</p>
+                    <p class="text-lg font-semibold text-slate-700 mt-2">Reduction in Time</p>
+                    <p class="text-sm text-slate-500">for an initial 'Feasible/Not Feasible' decision.</p>
+                 </div>
+                  <div class="card">
+                    <p class="text-5xl md:text-7xl kpi-number text-[#A4D65E]">90%</p>
+                    <p class="text-lg font-semibold text-slate-700 mt-2">Reduction in Errors</p>
+                    <p class="text-sm text-slate-500">for applications submitted via the new Smart Portal.</p>
+                 </div>
+                  <div class="card">
+                    <p class="text-5xl md:text-7xl kpi-number text-slate-600">>8/10</p>
+                    <p class="text-lg font-semibold text-slate-700 mt-2">User Satisfaction</p>
+                    <p class="text-sm text-slate-500">achieved with our initial MVP testing partners.</p>
+                 </div>
+             </div>
+        </section>
+
+    </main>
+    
+    <footer class="text-center p-8 bg-[#002D42] text-slate-300 mt-12">
+        <p>A Solution Developed by <span class="font-bold text-white">Abdus Salam</span> for</p>
+        <p class="text-2xl font-semibold text-white mt-1">EA Technology</p>
+    </footer>
 
     <script>
-        const brilliantBluesPalette = {
-            primary: '#005DFF',
-            secondary: '#00A5FF',
-            accent: '#00C2FF',
-            highlight: '#00D7E2',
-            background: 'rgba(0, 93, 255, 0.1)',
-            border: '#005DFF',
-            other: '#A0AEC0'
+        const brandPalette = {
+            darkBlue: '#002D42',
+            cyan: '#00A9CE',
+            lime: '#A4D65E',
+            grey: '#6c757d',
+            textPrimary: '#1E293B',
+            border: '#E2E8F0',
+            background: '#FFFFFF',
         };
 
-        const gridScoreChartCtx = document.getElementById('gridScoreChart').getContext('2d');
-        new Chart(gridScoreChartCtx, {
-            type: 'bar',
-            data: {
-                labels: ['LCT Workflow Accelerator', 'New Reporting Module', 'Internal Platform Upgrade'],
-                datasets: [{
-                    label: 'Weighted GRID Score',
-                    data: [4.25, 3.1, 2.5],
-                    backgroundColor: [
-                        brilliantBluesPalette.primary,
-                        brilliantBluesPalette.other,
-                        brilliantBluesPalette.other
-                    ],
-                    borderColor: [
-                        brilliantBluesPalette.border,
-                        '#718096',
-                        '#718096'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                indexAxis: 'y',
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                        max: 5,
-                        title: {
-                            display: true,
-                            text: 'Strategic Value Score'
+        const chartTooltipConfig = {
+            plugins: {
+                tooltip: {
+                    bodyFont: { weight: 'bold' },
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            }
+                            return label;
                         }
                     }
                 },
-                plugins: {
-                    legend: {
-                        display: false
+                legend: {
+                    labels: {
+                        color: brandPalette.textPrimary,
+                        font: { family: "'Inter', sans-serif" }
+                    }
+                }
+            },
+            maintainAspectRatio: false,
+            responsive: true,
+        };
+        
+        function wrapLabel(str, maxWidth = 16) {
+            if (!str || str.length <= maxWidth) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines.filter(line => line.length > 0);
+        }
+
+        const gridScoreCtx = document.getElementById('gridScoreChart');
+        if (gridScoreCtx) {
+            new Chart(gridScoreCtx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'Automated Feasibility Study Tool',
+                        'Smart Application Portal for ICPs',
+                        'Full Power System Simulation Suite',
+                        'Static PDF Report Generator',
+                    ].map(label => wrapLabel(label)),
+                    datasets: [{
+                        label: 'GRID Score',
+                        data: [18, 16, 12, 11],
+                        backgroundColor: [
+                            brandPalette.darkBlue,
+                            brandPalette.cyan,
+                            brandPalette.lime,
+                            brandPalette.grey,
+                        ],
+                        borderColor: brandPalette.background,
+                        borderWidth: 2
+                    }]
+                },
+                options: { ...chartTooltipConfig, indexAxis: 'y',
+                    scales: {
+                        y: { ticks: { color: brandPalette.textPrimary } },
+                        x: { ticks: { color: brandPalette.textPrimary }, grid: { color: brandPalette.border } }
                     },
-                    tooltip: {
-                        callbacks: {
-                            title: (tooltipItems) => tooltipItems[0].label
+                    plugins: { ...chartTooltipConfig.plugins, legend: { display: false } }
+                }
+            });
+        }
+        
+        const effortValueCtx = document.getElementById('effortValueMatrix');
+        if (effortValueCtx) {
+            const initiativeData = [
+                { name: 'Automated Feasibility Study', x: 3, y: 18, effort: 'L', type: 'Big Bet', color: brandPalette.darkBlue },
+                { name: 'Smart Application Portal', x: 2, y: 16, effort: 'M', type: 'Quick Win', color: brandPalette.cyan },
+                { name: 'Full Simulation Suite', x: 4, y: 12, effort: 'XL', type: 'Money Pit', color: brandPalette.lime },
+                { name: 'Static PDF Generator', x: 1.5, y: 11, effort: 'S/M', type: 'Thankless Task', color: brandPalette.grey },
+            ];
+
+            new Chart(effortValueCtx, {
+                type: 'bubble',
+                data: {
+                    datasets: initiativeData.map(d => ({
+                        label: d.type,
+                        data: [{ x: d.x, y: d.y, r: d.y * 1.2 }],
+                        backgroundColor: d.color + 'BF', 
+                        borderColor: d.color,
+                        borderWidth: 2,
+                        customData: d.name
+                    }))
+                },
+                options: {
+                    ...chartTooltipConfig,
+                    plugins: {
+                         ...chartTooltipConfig.plugins,
+                         legend: { display: false },
+                         tooltip: {
+                             callbacks: {
+                                 title: (context) => context[0].dataset.customData,
+                                 label: (context) => `Value: ${context.raw.y}, Effort: ${initiativeData.find(d=>d.y === context.raw.y).effort}`
+                             }
+                         }
+                    },
+                    scales: {
+                        y: {
+                            title: { display: true, text: 'Value (GRID Score)', color: brandPalette.textPrimary },
+                            ticks: { color: brandPalette.textPrimary },
+                            grid: { color: brandPalette.border }
+                        },
+                        x: {
+                            title: { display: true, text: 'Effort', color: brandPalette.textPrimary },
+                            ticks: {
+                                color: brandPalette.textPrimary,
+                                stepSize: 1,
+                                callback: (value, index, values) => ['S', 'M', 'L', 'XL'][value - 1]
+                            },
+                            min: 0.5,
+                            max: 4.5,
+                            grid: { color: brandPalette.border }
                         }
                     }
                 }
-            }
-        });
+            });
+        }
     </script>
 </body>
 </html>
+
