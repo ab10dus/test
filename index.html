@@ -8,14 +8,14 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- 
         Chosen Palette: EA Technology Corporate Branding (Utilizing the official brand colors: dark navy blue, electric cyan, and lime green for a professional and on-brand feel).
-        Application Structure Plan: The infographic is structured as a compelling narrative that guides the user from the "Why" (The Crisis & Problem Deconstruction), to the "Who" (The Stakeholders), to the "How" (The Strategy & Plan), and finally to the "What" (The Impact). This structure makes a complex strategic document easy to digest and understand.
-        Visualization & Content Choices: 
+        Application Structure Plan: This infographic uses a simple, linear, top-to-bottom narrative structure. It guides the user through a clear story: The Problem, The Plan, The Strategy, The Blueprint, and The Impact. This was chosen for maximum clarity and ease of digestion, removing all complex UI like tabs or sidebars as requested. The focus is on presenting the strategic proposal in a clean, professional, and easy-to-follow visual document.
+        Visualization & Content Choices:
         - Report Info: "Perfect Storm" Concept -> Goal: Inform -> Viz: 3-card layout with unicode icons -> Interaction: Hover animations -> Justification: Quickly communicates the three core problem drivers. -> Method: HTML/CSS.
         - Report Info: "Deconstructing Feedback & Hypotheses" -> Goal: Explain -> Viz: Two-column text cards and a list of hypothesis cards -> Justification: Clearly breaks down the analysis of the core problem. -> Method: HTML/CSS.
-        - Report Info: "Stakeholder Matrix" -> Goal: Organize -> Viz: 5-card layout with role tags -> Interaction: Hover animations -> Justification: Clearly presents the key players and their motivations. -> Method: HTML/CSS.
+        - Report Info: "Stakeholder Matrix" -> Goal: Organize -> Viz: A clear table -> Justification: The most direct and professional way to present this matrix data. -> Method: HTML/CSS.
         - Report Info: "GRID Scoring Data" -> Goal: Compare -> Viz: Horizontal Bar Chart -> Interaction: Rich tooltips -> Justification: The best way to clearly compare the final scores of different initiatives. -> Library: Chart.js.
         - Report Info: "Effort-Value Analysis" -> Goal: Relationships -> Viz: Bubble Chart -> Interaction: Rich tooltips -> Justification: Ideal for showing the relationship between Value (GRID Score), Effort, and the specific initiative. -> Library: Chart.js.
         - Report Info: "12-Week Roadmap" -> Goal: Change (Timeline) -> Viz: HTML/CSS Grid-based Gantt-style chart -> Interaction: None -> Justification: Provides a clear, professional visualization for the project timeline. -> Method: HTML/CSS.
@@ -86,15 +86,15 @@
 </head>
 <body class="antialiased">
 
-    <header class="text-center p-8 md:p-12 bg-white">
+    <header class="text-center p-8 md:p-12 bg-white border-b border-slate-200">
         <h1 class="text-4xl md:text-5xl font-black text-slate-900 uppercase tracking-wider">The Gridlock in the Grid</h1>
         <p class="text-lg md:text-xl mt-4 max-w-3xl mx-auto text-slate-600">A Strategic Proposal by <span class="font-bold text-[#002D42]">Abdus Salam</span> to Revolutionise Connection Impact Assessments</p>
     </header>
 
-    <main class="container mx-auto p-4 md:p-8">
+    <main class="container mx-auto p-4 md:p-8 space-y-16">
 
-        <section id="problem" class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-8">The DNO's Perfect Storm</h2>
+        <section id="problem">
+            <h2 class="text-3xl font-bold text-center mb-8">The Problem: A Perfect Storm</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 <div class="card">
                     <div class="text-6xl mb-4">🌪️</div>
@@ -114,18 +114,15 @@
             </div>
         </section>
 
-        <section id="deconstruction" class="mb-16">
+        <section id="deconstruction">
             <h2 class="text-3xl font-bold text-center mb-8">My Understanding & Core Assumptions</h2>
-            <div class="text-center mb-10">
-                 <p class="text-slate-600 max-w-3xl mx-auto">Before building a solution, it's critical to deconstruct the feedback and form a set of clear, testable hypotheses. This is my interpretation of the core problem.</p>
-            </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div class="card">
-                    <h3 class="font-bold text-lg text-[#002D42] mb-2">"Too time-consuming"</h3>
+                    <h3 class="font-bold text-lg text-[#002D42] mb-2">Deconstructing "Too time-consuming"</h3>
                     <p class="text-slate-600">This points to a broken process. It's a symptom of manual data entry, disconnected tools, and endless back-and-forth to chase missing information.</p>
                 </div>
                 <div class="card">
-                    <h3 class="font-bold text-lg text-[#002D42] mb-2">"Not the right value"</h3>
+                    <h3 class="font-bold text-lg text-[#002D42] mb-2">Deconstructing "Not the right value"</h3>
                     <p class="text-slate-600">This is the critical insight. The process is delivering an answer to a question nobody is asking anymore. The "value" they need isn't a static report; it's dynamic decision-support for managing a complex connection queue.</p>
                 </div>
             </div>
@@ -141,50 +138,46 @@
             </div>
         </section>
 
-        <section id="stakeholders" class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-8">Understanding the Ecosystem: Key Stakeholders</h2>
+        <section id="stakeholders">
+            <h2 class="text-3xl font-bold text-center mb-8">The Discovery Plan: Who to Talk To & Why</h2>
             <p class="text-center text-slate-600 max-w-3xl mx-auto mb-10">To build the right solution, I will engage with a wide range of stakeholders. Each holds a critical piece of the puzzle, and their motivations must inform my strategy.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="card">
-                    <h3 class="font-bold text-lg text-[#002D42] mb-3">👤 Primary Users (DNO)</h3>
-                    <p class="text-sm text-slate-600 mb-3">They live the process daily. I need to understand their workflow, pain points, and workarounds to validate my hypotheses.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">Connection Engineers</span>
-                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">Planning Engineers</span>
-                    </div>
-                </div>
-                 <div class="card">
-                    <h3 class="font-bold text-lg text-[#002D42] mb-3">🤝 DNO Customers</h3>
-                    <p class="text-sm text-slate-600 mb-3">Their frustrations with the application process directly cause the DNO's administrative burden. A solution that helps them helps everyone.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">ICPs</span>
-                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">LCT Installers</span>
-                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">Developers</span>
-                    </div>
-                </div>
-                 <div class="card">
-                    <h3 class="font-bold text-lg text-[#002D42] mb-3">🏛️ Regulatory & Governance</h3>
-                    <p class="text-sm text-slate-600 mb-3">Their mandates (especially the CAP) are the primary driver of this project. The proposed solution must be fully aligned with their requirements.</p>
-                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">Ofgem</span>
-                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">NESO</span>
-                    </div>
-                </div>
-                 <div class="card lg:col-span-3">
-                    <h3 class="font-bold text-lg text-[#002D42] mb-3">🏢 Internal EA Technology Stakeholders</h3>
-                    <p class="text-sm text-slate-600 mb-3">I will align on business objectives, leverage existing company expertise, and secure the necessary resources for success.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">Product Leadership</span>
-                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">Sales & Accounts</span>
-                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">DSO Consultancy Team</span>
-                        <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">Engineering</span>
-                    </div>
-                </div>
+            <div class="card overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-50 text-slate-800">
+                        <tr>
+                            <th class="p-3 font-semibold">Stakeholder Group</th>
+                            <th class="p-3 font-semibold">Specific Roles</th>
+                            <th class="p-3 font-semibold">Why I Must Speak to Them</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-slate-200">
+                            <td class="p-3 font-bold text-[#002D42]">Primary Users (DNO)</td>
+                            <td class="p-3">Connection Engineers, Planning Engineers</td>
+                            <td class="p-3">To map the "as-is" workflow, identify specific pain points, and validate my core hypotheses.</td>
+                        </tr>
+                        <tr class="border-b border-slate-200">
+                            <td class="p-3 font-bold text-[#002D42]">DNO Customers</td>
+                            <td class="p-3">ICPs, LCT Installers, Developers</td>
+                            <td class="p-3">To understand the friction in the application process from the "submitter's" perspective.</td>
+                        </tr>
+                        <tr class="border-b border-slate-200">
+                            <td class="p-3 font-bold text-[#002D42]">Regulatory & Governance</td>
+                            <td class="p-3">Ofgem, NESO</td>
+                            <td class="p-3">To ensure the solution is fully aligned with current and future regulatory direction, especially the CAP.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-[#002D42]">Internal EA Technology</td>
+                            <td class="p-3">Product Leadership, Sales, DSO Consultancy</td>
+                            <td class="p-3">To align on business objectives, leverage existing company expertise, and secure resources.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
-        <section id="strategy" class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-8">A Data-Driven Strategy: From a Crowded Field to a Clear Focus</h2>
+        <section id="strategy">
+            <h2 class="text-3xl font-bold text-center mb-8">The Strategy: A Data-Driven Approach</h2>
             <div class="card md:col-span-3 mb-8">
                 <h3 class="text-2xl font-bold text-center mb-4">The GRID Prioritisation Framework</h3>
                 <p class="text-center text-slate-600 max-w-3xl mx-auto mb-6">To ensure my efforts are laser-focused on what matters, I will score every potential initiative against four strategic pillars. This data-driven approach removes bias and provides a defensible rationale for my product strategy.</p>
@@ -226,7 +219,7 @@
             </div>
         </section>
 
-        <section id="blueprint" class="mb-16">
+        <section id="blueprint">
             <h2 class="text-3xl font-bold text-center mb-8">The Blueprint: Visualising the Path Forward</h2>
             <div class="card mb-8">
                 <h3 class="text-2xl font-bold text-center mb-2">The Quarterly Roadmap</h3>
@@ -287,7 +280,7 @@
             </div>
         </section>
 
-        <section id="principles" class="mb-16">
+        <section id="principles">
             <h2 class="text-3xl font-bold text-center mb-8">My Product Principles: How I Build & Win</h2>
              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="card text-center">
@@ -318,7 +311,7 @@
             </div>
         </section>
         
-        <section id="impact" class="mb-8">
+        <section id="impact">
              <h2 class="text-3xl font-bold text-center mb-8">Measuring What Matters: Outcomes Over Outputs</h2>
              <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                  <div class="card">
@@ -490,4 +483,3 @@
     </script>
 </body>
 </html>
-
